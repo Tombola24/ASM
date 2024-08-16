@@ -3,8 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate Report</title>
+    <title>Filtering Page</title>
     <link rel="stylesheet" href="asset.css">
+    <script>
+        let assets = []; // Store fetched assets for filtering and sorting
+
+        async function generateReport() {
+            try {
+                const response = await fetch('/api/report');
+                if (response.ok) {
+                    assets = await response.json();
+                    renderTable(assets); // Render the table with the fetched data
+                } else {
+                    console.error('Failed to generate report:', response.statusText);
+                }
+            } catch (err) {
+                console.error('Error:', err);
+            }
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById('reportTable').getElementsByTagName('tbody')[0];
+            tbody.innerHTML = ''; // Clear previous report data
+
+            if (Array.isArray(data) && data.length > 0) {
+                data.forEach(asset => {
+                    const row = tbody.insertRow();
+                    row.insertCell(0).innerText = asset.AssetID;
+                    row.insertCell(1).innerText = asset.Name;
+                    row.insertCell(2).innerText = asset.Category;
+                    row.insertCell(3).innerText = asset.PurchaseDate;
+                    row.insertCell(4).innerText = asset.Cost;
+                    row.insertCell(5).innerText = asset.CurrentValue;
+                    row.insertCell(6).innerText = asset.Location;
+                    row.insertCell(7).innerText = asset.Department;
+                    row.insertCell(8).innerText = asset.Condition;
+                    row.insertCell(9).innerText = asset.Status;
+                });
+            } else {
+                const row = tbody.insertRow();
+                const cell = row.insertCell(0);
+                cell.colSpan = 10;
+                cell.innerText = 'No data available';
+            }
+        }
+
+        function generateFilteredReport() {
+            const category = document.getElementById('categorySelect').value;
+            const department = document.getElementById('departmentSelect').value;
+
+            const filteredAssets = assets.filter(asset => {
+                return (category === '' || asset.Category === category) &&
+                       (department === '' || asset.Department === department);
+            });
+
+            renderTable(filteredAssets);
+        }
+
+        window.onload = function() {
+            generateReport(); // Fetch initial data when the page loads
+        }
+
+        function downloadReport() {
+    const table = document.getElementById('reportTable');
+    const rows = Array.from(table.rows);
+    const csvContent = rows.map(row => Array.from(row.cells).map(cell => cell.innerText).join(",")).join("\n");
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'report.csv';
+    link.click();
+}
+    </script>
 </head>
 <body>
     <nav class="navbar">
@@ -19,36 +90,43 @@
             &#9776;
         </div>
     </nav>
+    <div class="filters">
+        <label for="categorySelect">Category:</label>
+        <select id="categorySelect">
+            <option value="">All</option>
+            <option value="Computer">Computer</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Furniture">Furniture</option>
+        </select>
 
-    <h1 class="headers" id="generateReport">Generate Report</h1>
-    <div class="report-buttons">
-        <button onclick="generateReport()">Generate Report</button>
+        <label for="departmentSelect">Department:</label>
+        <select id="departmentSelect">
+            <option value="">All</option>
+            <option value="IT">IT</option>
+            <option value="CLAIMS">Claims</option>
+            <option value="UNDER-Writing">Under writing</option>
+        </select>
+
+        <button onclick="generateFilteredReport()">Filtered Report</button>
         <button onclick="downloadReport()">Download Report</button>
-        <button onclick="navigateToFilteringPage()">Filtering Page</button>
     </div>
 
     <table id="reportTable">
         <thead>
             <tr>
-                <th onclick="sortTable('AssetID')">Asset ID</th>
-                <th onclick="sortTable('Name')">Name</th>
-                <th onclick="sortTable('Category')">Category</th>
-                <th onclick="sortTable('PurchaseDate')">Purchase Date</th>
-                <th onclick="sortTable('Cost')">Cost</th>
-                <th onclick="sortTable('CurrentValue')">Current Value</th>
-                <th onclick="sortTable('Location')">Location</th>
-                <th onclick="sortTable('Department')">Department</th>
-                <th onclick="sortTable('Condition')">Condition</th>
-                <th onclick="sortTable('Status')">Status</th>
+                <th>Asset ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Purchase Date</th>
+                <th>Cost</th>
+                <th>Current Value</th>
+                <th>Location</th>
+                <th>Department</th>
+                <th>Condition</th>
+                <th>Status</th>
             </tr>
         </thead>
+        <tbody></tbody>
     </table>
-    
-        <tbody>
-            <!-- Report data will be inserted here -->
-        </tbody>
-    </table>
-    
-    <script src="asset.js"></script>
 </body>
 </html>

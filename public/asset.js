@@ -210,23 +210,6 @@ async function saveAsset(event) {
     }
 }
 
-async function generateReport() {
-    try {
-        const response = await fetch('/api/report');
-        if (response.ok) {
-            const assets = await response.json();
-            return assets; // Return the fetched data
-        } else {
-            console.error('Failed to generate report:', response.statusText);
-            return null;
-        }
-    } catch (err) {
-        console.error('Error:', err);
-        return null;
-    }
-}
-
-
 function downloadReport() {
     const table = document.getElementById('reportTable');
     const rows = Array.from(table.rows);
@@ -299,3 +282,4 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
         document.getElementById('registrationMessage').innerText = 'An error occurred. Please try again later.';
     }
 });
+
