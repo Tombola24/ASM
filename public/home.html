@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Management System</title>
+    <link rel="stylesheet" href="asset.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="add-asset.html">Add Assets</a></li>
+            <li><a href="manage-asset.html">Manage Assets</a></li>
+            <li><a href="report.html">Reports</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+        <div class="navbar-toggle" id="navbar-toggle">
+            &#9776;
+        </div>
+    </nav>
+
+    <div class="fqs">
+         <h2>Welcome to the Asset Management System.</h2>
+        <ul class="accord">
+            <li>
+                <input type="radio" name="accord" id="first">
+                <label for="first" class="plus">Add Asset</label>
+                <div class="content">
+                    <p>Use this section to input new assets into the system, 
+                        including their details such as ID, name, category, purchase date, and more.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <input type="radio" name="accord" id="second">
+                <label for="second" class="plus">Manage Asset</label>
+                <div class="content">
+                    <p>
+                        Use this section to update existing asset details or remove assets from the system. 
+                        This feature allows you to modify asset information such as ID, name, category, and 
+                        location, or to delete assets that are no longer needed.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <input type="radio" name="accord" id="third">
+                <label for="third" class="plus">Report Of Asset</label>
+                <div class="content">
+                    <p>
+                        The reports section offers various reports and analytics on your assets, 
+                        helping you make informed decisions based on asset performance and utilization.
+                    </p>
+            </li>
+            <li>
+                <input type="radio" name="accord" id="fourth">
+                <label for="fourth" class="plus">Add an Excel sheet</label>
+                <div class="content">
+                    <p>
+                        The upload section allows users to easily add files by selecting them from their device. 
+                        Once a file is chosen, it will be automatically processed and integrated into the system. 
+                        This feature supports various file formats for seamless data handling.
+                    </p>
+                </div>
+        <li>     
+        </ul>
+        <script src="asset.js"></script>    
+</body>
+</html>

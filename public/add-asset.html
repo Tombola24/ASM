@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Asset</title>
+    <link rel="stylesheet" href="asset.css">
+</head>
+<body>
+     <nav class="navbar">
+          <ul class="navbar-menu">
+              <li><a href="home.html">Home</a></li>
+              <li><a href="add-asset.html">Add Assets</a></li>
+              <li><a href="manage-asset.html">Manage Assets</a></li>
+              <li><a href="report.html">Reports</a></li>
+              <li><a href="logout.html">Logout</a></li>
+          </ul>
+          <div class="navbar-toggle" id="navbar-toggle">
+              &#9776;
+          </div>
+      </nav>
+
+    <h1 class="headers">Add New Asset</h1>
+    <form id="assetForm" onsubmit="saveAsset(event)">
+
+        <div class="form-container">
+            <div class="form-group">
+                <label for="assetId">Asset ID:</label>
+                <input type="text" id="assetId" name="assetId" required>
+           </div>
+           
+          <div class="form-group">
+                <label for="assetName">Asset Name:</label>
+                <input type="text" id="assetName" name="assetName" required>
+          </div>
+           
+           <div class="form-group">
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" required>
+           </div>
+           
+           <div class="form-group">
+                <label for="purchaseDate">Purchase Date:</label>
+                <input type="date" id="purchaseDate" name="purchaseDate" required>
+           </div>
+           
+           <div class="form-group">
+                <label for="cost">Cost:</label>
+                <input type="number" id="cost" name="cost" required>
+           </div>
+           
+           <div class="form-group">
+                <label for="currentValue">Current Value:</label>
+                <input type="number" id="currentValue" name="currentValue">
+           </div>
+           
+           <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+           </div>
+           
+           <div class="form-group">
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" required>
+           </div>
+           
+           <div class="form-group">
+                <label for="condition">Condition:</label>
+                <input type="text" id="condition" name="condition" required>
+           </div>
+           
+           <div class="form-group">
+                <label for="status">Status:</label>
+                <input type="text" id="status" name="status" required>
+           </div>
+           
+           <div class="form-group">
+                <label for="maintenanceSchedule">Maintenance Schedule:</label>
+                <input type="date" id="maintenanceSchedule" name="maintenanceSchedule">
+           </div>
+           
+           <div class="form-group">
+                <label for="warrantyInfo">Warranty Information:</label>
+                <input type="text" id="warrantyInfo" name="warrantyInfo">
+           </div>
+           
+           <div class="form-group">
+                <label for="supplierInfo">Supplier Information:</label>
+                <input type="text" id="supplierInfo" name="supplierInfo">
+           </div>
+           
+           <div class="form-group">
+                <label for="notes">Notes:</label>
+                <textarea id="notes" name="notes"></textarea>
+           </div>
+           
+           <button type="submit">Save Asset</button>
+      
+        </div>
+    </form>
+    
+    <script src="asset.js"></script> 
+</body>
+</html>

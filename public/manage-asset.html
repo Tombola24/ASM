@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Asset</title>
+    <link rel="stylesheet" href="asset.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="add-asset.html">Add Assets</a></li>
+            <li><a href="manage-asset.html">Manage Assets</a></li>
+            <li><a href="report.html">Reports</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+        <div class="navbar-toggle" id="navbar-toggle">
+            &#9776;
+        </div>
+    </nav>
+    <div class="fqs">
+        <h2>Asset management Page</h2>
+       <ul class="accord">
+           <li>
+               <input type="radio" name="accord" id="first">
+               <label for="first" class="plus">Update Asset</label>
+               <div class="content">
+                   <p>
+                    To modify an existing asset, enter the asset ID to locate it. 
+                    A form with the current details will be displayed for you to update. 
+                    After saving, a confirmation message will confirm the successful update.
+                   </p>
+               </div>
+           </li>
+           <li>
+               <input type="radio" name="accord" id="second">
+               <label for="second" class="plus">Delete Asset</label>
+               <div class="content">
+                   <p>
+                    Click the button to remove an asset by entering its ID to search and locate it. 
+                    Confirm the deletion after viewing the asset details, and it will be permanently removed.
+                    A confirmation message will appear once the deletion is successful.
+                   </p>
+               </div>
+            <li> 
+    <div>
+        <button onclick="location.href='update-asset.html'">Update Asset</button>
+        <button onclick="location.href='delete-asset.html'">Delete Asset</button>
+    </div>
+
+    <script src="asset.js"></script>
+</body>
+</html>

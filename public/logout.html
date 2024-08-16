@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout Page</title>
+    <link rel="stylesheet" href="asset.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, User!</h1>
+        <p>You are logged in. Click the button below to log out.</p>
+        <button id="logoutButton" type="button">Logout</button>
+    </div>
+
+    <script>
+        document.getElementById('logoutButton').addEventListener('click', async function() {
+            try {
+                const response = await fetch('/logout', {
+                    method: 'GET',
+                });
+
+                if (response.ok) {
+                    window.location.href = '/'; // Redirect to the login page after logout
+                } else {
+                    console.error('Logout failed.');
+                    // Handle logout failure if necessary
+                }
+            } catch (err) {
+                console.error('Error logging out:', err);
+                // Handle any errors that occurred during logout
+            }
+        });
+    </script>
+</body>
+</html>

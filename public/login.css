@@ -1,0 +1,129 @@
+:root {
+    --custom-bg-color: #e6f2ff; /* Light blue background */
+    --custom-text-color: #2c3e50; /* Dark blue text */
+    --button-bg-color: #3498db; /* Primary blue */
+    --button-hover-bg-color: #2980b9; /* Darker blue for hover */
+    --button-text-color: #ffffff; /* White text on buttons */
+    --card-bg-color: #ffffff; /* White background for cards */
+    --card-shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+    --input-focus-border-color: #5dade2; /* Focused input border color */
+}
+
+html, body {
+    height: 100%; 
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    background-color: var(--custom-bg-color);
+    padding: 20px;
+    color: var(--custom-text-color);
+}
+
+/* Heading */
+h2 {
+    color: var(--custom-text-color);
+    margin-bottom: 20px;
+}
+
+/* Login Form Wrapper */
+.form-wrapper {
+    background-color: var(--card-bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px var(--card-shadow-color);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Form Control */
+.form-control {
+    position: relative;
+    margin-bottom: 20px;
+    width: 380px;
+}
+
+.form-control input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control input:focus {
+    border-color: var(--input-focus-border-color);
+    outline: none;
+}
+
+.form-control label {
+    position: absolute;
+    top: 0;
+    left: 12px;
+    padding: 0 4px;
+    background-color: var(--card-bg-color);
+    color: var(--custom-text-color);
+    font-size: 14px;
+    transition: top 0.2s ease, font-size 0.2s ease;
+}
+
+.form-control input:focus + label,
+.form-control input:not(:placeholder-shown) + label {
+    top: -16px;
+    font-size: 12px;
+    color: var(--button-bg-color);
+}
+
+/* Button */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Help */
+.form-help {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--custom-text-color);
+}
+
+.form-help a {
+    color: var(--button-bg-color);
+    text-decoration: none;
+}
+
+.form-help a:hover {
+    text-decoration: underline;
+}
+
+/* Small Text */
+small {
+    display: block;
+    margin-top: 20px;
+    color: var(--custom-text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .form-wrapper {
+        width: 95%;
+    }
+}

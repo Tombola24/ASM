@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Report</title>
+    <link rel="stylesheet" href="asset.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="add-asset.html">Add Assets</a></li>
+            <li><a href="manage-asset.html">Manage Assets</a></li>
+            <li><a href="report.html">Reports</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+        <div class="navbar-toggle" id="navbar-toggle">
+            &#9776;
+        </div>
+    </nav>
+
+    <h1 class="headers" id="generateReport">Generate Report</h1>
+    <div class="report-buttons">
+        <button onclick="generateReport()">Generate Report</button>
+        <button onclick="downloadReport()">Download Report</button>
+        <button onclick="navigateToFilteringPage()">Filtering Page</button>
+    </div>
+
+    <table id="reportTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable('AssetID')">Asset ID</th>
+                <th onclick="sortTable('Name')">Name</th>
+                <th onclick="sortTable('Category')">Category</th>
+                <th onclick="sortTable('PurchaseDate')">Purchase Date</th>
+                <th onclick="sortTable('Cost')">Cost</th>
+                <th onclick="sortTable('CurrentValue')">Current Value</th>
+                <th onclick="sortTable('Location')">Location</th>
+                <th onclick="sortTable('Department')">Department</th>
+                <th onclick="sortTable('Condition')">Condition</th>
+                <th onclick="sortTable('Status')">Status</th>
+            </tr>
+        </thead>
+    </table>
+    
+        <tbody>
+            <!-- Report data will be inserted here -->
+        </tbody>
+    </table>
+    
+    <script src="asset.js"></script>
+</body>
+</html>

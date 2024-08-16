@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime ASM Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="form-wrapper">
+        <header class="image-container mb-4">
+            <img src="prime_logo.jpeg" alt="Prime Logo" class="img-fluid">
+        </header>
+        <h2>Sign In</h2>
+        <form id="Loginform">
+            <div class="form-control">
+                <input type="text" name="username" id="username" required aria-label="Employee Username">
+                <label for="username">Employee Username</label>
+            </div>
+            <div class="form-control">
+                <input type="password" name="password" id="password" required aria-label="Password">
+                <label for="password">Password</label>
+            </div>
+            <button type="submit">Sign In</button>
+            
+            <p>
+                Don't have an account? Feel free to <a href="register.html">Register</a>.
+            </p>
+            <div class="form-help"> 
+                <div class="remember-me">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+            </div>
+            <!-- Message container for login status -->
+            <div id="loginMessage" class="form-message"></div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('Loginform').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    window.location.href = '/home';
+                } else {
+                    const result = await response.json();
+                    document.getElementById('loginMessage').innerText = result.error || 'Login failed. Please check your username and password.';
+                }
+            } catch (err) {
+                console.error('Error logging in:', err);
+                document.getElementById('loginMessage').innerText = 'An error occurred. Please try again later.';
+            }
+        });
+    </script>
+</body>
+</html>
