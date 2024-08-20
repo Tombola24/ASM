@@ -19,14 +19,16 @@ app.use (cookieParser());
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true } // Set to true if using HTTPS
+    saveUninitialized: false,
 }));
 
 // Routes
 app.use('/api', router); 
 
 app.get('/', (req, res) => {
+    req.session.isAuth = true;
+    console.log(req.session);
+    console.log(req.session.id);
     res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
