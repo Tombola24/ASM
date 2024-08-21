@@ -1,5 +1,3 @@
-
-
 function navigateToFilteringPage() {
     window.location.href = 'filteringpage.html';
 }
