@@ -1,7 +1,3 @@
-function navigateToFilteringPage() {
-    window.location.href = 'filteringpage.html';
-}
-
 function formatDate(dateString) {
     const date = new Date(dateString);
     const year = date.getFullYear();

@@ -15,21 +15,23 @@
             <li><a href="report.html">Reports</a></li>
             <li><a href="logout.html">Logout</a></li>
         </ul>
-        <div class="navbar-toggle" id="navbar-toggle">
-            &#9776;
-        </div>
     </nav>
 
     <h1>Delete Asset</h1>
     <form id="searchForm">
         <label for="searchId">Enter Asset ID:</label>
         <input type="text" id="searchId" name="searchId" required>
-        <button id="searchButton" type="button" onclick="searchAsset() ">Search</button>
+        <button id="searchButton" type="button" onclick="searchAsset()">Search</button>
     </form>
 
     <div id="deleteSection">
         <div id="assetDetails"></div>
-        <button onclick="deleteAsset()" class="del" id="deleteButton">Delete Asset</button>
+        <form id="assetForm" onsubmit="updateAsset(event)">
+            <div class="form-container">
+                <!-- Form fields will be populated here by JavaScript -->
+            </div>    
+        <button type="submit" onclick="deleteAsset()" class="del" id="deleteButton">Delete Asset</button>
+        </form>
         <div id="message"></div>
     </div>
 
