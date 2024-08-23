@@ -22,6 +22,14 @@
     background-color:red;
 }
 
+#message {
+    font-weight: bold;
+}
+
+#assetDetails {
+    display: none;
+}
+
 button.del :hover {
     background-color: red;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
