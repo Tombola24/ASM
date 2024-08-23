@@ -72,7 +72,7 @@ function populateForm(asset) {
     const formContainer = document.querySelector('#assetForm .form-container');
     formContainer.innerHTML = `
         <div class="form-group">
-            <label for="assetId">Asset ID:</label>
+            <label for="assetId">Asset ID/Tag Number:</label>
             <input type="text" id="assetId" name="assetId" value="${asset.AssetID}" readonly>
         </div>
         <div class="form-group">
@@ -196,7 +196,7 @@ async function saveAsset(event) {
             alert('Asset saved successfully!');
             document.getElementById('assetForm').reset();
         } else {
-            alert('Failed to save asset.');
+            alert('Asset Id already exists');
         }
     } catch (err) {
         console.error('Error:', err);
