@@ -276,4 +276,3 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
         document.getElementById('registrationMessage').innerText = 'An error occurred. Please try again later.';
     }
 });
-
