@@ -46,7 +46,7 @@ async function searchAsset() {
         }
     } catch (error) {
         console.error('Error fetching asset:', error);
-        alert('Error fetching asset details. Please try again later.');
+        alert('Asset not found');
     }
 }
 
@@ -161,7 +161,7 @@ async function updateAsset(event) {
         document.getElementById('message').style.display = 'block';
     } catch (error) {
         console.error('Error updating asset:', error);
-        alert('Error updating asset. Please try again later.');
+        alert('The Asset does not exis in system');
     }
 }
 

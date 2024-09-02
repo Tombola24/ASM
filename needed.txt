@@ -1,6 +1,0 @@
-EXEC sp_rename 'TableName.OldColumnName', 'NewColumnName', 'COLUMN';
-
-
-
-ALTER TABLE TableName
-ALTER COLUMN ColumnName NewDataType;
